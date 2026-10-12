@@ -1,38 +1,46 @@
-let numthingies = 10;
-let dmin = 10;
-let dmax = 100;
+let img;
+let tx, ty, r;
+let target_tx, target_ty;
+let counter = 0;
+let speed = .1;
+let rspeed = .02;
 
-function setup() {
-  createCanvas(400, 400);
-  noLoop();
+function windowResized(){
+  resizeCanvas(windowWidth, windowHeight);
+}
+
+async function setup() {
+  createCanvas(windowWidth, windowHeight);
+  cell = await loadImage("ArcellaDiscoides01.png");
+  tx = random(100, width-100);
+  ty = random(100, height-100);
+  r = 0;
+  target_tx = tx;
+  target_ty = ty;
+  target_r = r;
 }
 
 function draw() {
   background(0);
-  stroke(255);
-  strokeWeight(1);
-  angleMode(DEGREES);
+  imageMode(CENTER);
 
-  for(i=0;i<numthingies;i++){
-    my_angle = random(360);
-    my_x = random(width/2)+width/4;
-    my_y = random(height/2)+height/4;
-    my_d = random(dmin,dmax);
-    my_length = random(my_d/2+5,my_d+20)
-    thingy(my_angle,my_x,my_y,my_d,my_length);
-  }
-  
-}
-
-function thingy(angle,x,y,d,length) {
   push();
-  translate(x,y);
-  rotate(angle);
-  fill(0,200);
-  circle(0,0,d);
-  line(0,0,length,0);
-  circle(length+5,0,10);
-  fill(255);
-  circle(0,0,5);
+  tx = lerp(tx,target_tx, speed);
+  ty = lerp(ty,target_ty, speed);
+  r = lerp(r,target_r, rspeed);
+  s = map(sin(frameCount*.1), -1, 1, .98, 1.02);
+  translate(tx, ty);
+  rotate(r);
+  scale(s)
+  image(cell, 0, 0);
   pop();
+
+  counter++;
+
+  if (counter>100){
+    counter=0;
+    target_tx = random(100,width-100);
+    target_ty = random(100,height-100);
+    target_r = random(TWO_PI);
+  }
 }
