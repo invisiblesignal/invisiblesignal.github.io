@@ -1,2 +1,2 @@
 # invisiblesignal.github.io
-p5.js sketches made fro DDA617 Languages
+p5.js sketches made for DDA617 Languages
