@@ -10,7 +10,7 @@ function windowResized(){
 }
 
 async function setup() {
-  createCanvas(windowWidth, windowHeight);
+  let cnv = createCanvas(windowWidth, windowHeight);
   cell = await loadImage("ArcellaDiscoides01.png");
   tx = random(100, width-100);
   ty = random(100, height-100);

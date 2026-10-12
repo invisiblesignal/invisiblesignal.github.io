@@ -5,3 +5,24 @@ html, body {
 canvas {
   display: block;
 }
+
+h1 {
+  font-family: Verdana;
+  font-size: 30pt;
+  color: white;
+}
+
+p {
+  font-family: Verdana;
+  font-size: 12pt;
+  color: white;
+}
+
+a {
+  color:#5786E6;
+  text-decoration: underline;
+}
+
+a:hover {
+  color:#1F64F0
+}
