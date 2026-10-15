@@ -1,7 +1,16 @@
 html, body {
   margin: 0;
   padding: 0;
+  background-color:transparent;
+  cursor:none;
 }
+
+main {
+  max-width: 60ch;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
 canvas {
   display: block;
   position: absolute;
@@ -11,13 +20,25 @@ canvas {
 }
 
 h1 {
-  color:white;
-  font-family: Verdana;
-  font-size: 40pt;
+  font-family: Garamond;
+  font-style:italic;
+  font-size: 30pt;
+  color: gold;
+  text-align: center;
 }
 
-p{
-  color:white;
+p {
   font-family: Verdana;
-  font-size: 10pt;
+  font-size: 12pt;
+  color: white;
+  text-align: justify;
+}
+
+a {
+  color:#5786E6;
+  text-decoration: underline;
+}
+
+a:hover {
+  color:#1F64F0
 }
